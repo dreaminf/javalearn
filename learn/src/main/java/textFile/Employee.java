@@ -1,15 +1,18 @@
 package textFile;
 
+import java.time.LocalDate;
+
 public class Employee {
+    private String name;
+    private double salary;
+    private LocalDate hireday;
+
     public Employee(String name, double salary, int year, int month, int day) {
         this.name = name;
         this.salary = salary;
-        this.year = year;
-        this.month = month;
-        this.day = day;
-    }
+        hireday = LocalDate.of(year, month, day);
 
-    private String name;
+    }
 
     public String getName() {
         return name;
@@ -19,27 +22,16 @@ public class Employee {
         return salary;
     }
 
-    public int getYear() {
-        return year;
+    public LocalDate getHireDay() {
+        return hireday;
     }
 
-    public int getMonth() {
-        return month;
+    public void raiseSalary(double byPercent) {
+        double raise = salary * byPercent / 100;
+        salary += raise;
     }
 
-    public int getDay() {
-        return day;
-    }
 
-    public String getHireDay() {
-        String hireDate = this.year + "-" + this.month + "-" + this.day;
-        return hireDate;
-    }
-
-    private double salary;
-    private int year;
-    private int month;
-    private int day;
 
 
 }
